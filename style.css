@@ -1,0 +1,1163 @@
+  /* =====================================================
+   RESET
+===================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+/* ================================
+   SISTEMA RESPONSIVO GLOBAL
+================================ */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Tipografía adaptable */
+h1 {
+    font-size: clamp(3rem, 5vw, 5rem);
+}
+
+h2 {
+    font-size: clamp(1.3rem, 4vw, 2.5rem);
+}
+
+p {
+    font-size: clamp(1.0rem, 2.5vw, 1rem);
+}
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #434343, #000);
+    color: #fff;
+    overflow-x: hidden;
+    font-size: 20px;
+    padding-top: 80px; /* 🔥 Igual a la altura del navbar */
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =====================================================
+   NAVBAR FIJO SIEMPRE VISIBLE REAL
+===================================================== */
+.navbar {
+    position: fixed !important; /* 🔥 Fuerza que no cambie */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 60px;
+
+    background: rgba(0, 0, 0, 0.98);
+    backdrop-filter: blur(12px);
+
+    z-index: 99999; /* 🔥 Más alto que todo */
+}
+
+header.navbar {
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+/* Logo */
+.logo {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #ff6b00;
+}
+
+/* =====================================================
+   NAV LINKS
+===================================================== */
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links a {
+    position: relative;
+    padding: 6px 0;
+    font-weight: 500;
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+/* Línea animada */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(45deg, #ff6b00, #ff9500);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* =====================================================
+   ICONOS REDES
+===================================================== */
+.social-container {
+    display: flex;
+    align-items: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.social-links a {
+    size: 42px;
+    width: var(--size);
+    height: var(--size);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    font-size: 16px;
+
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: linear-gradient(45deg, #ff6b00, #ff9500);
+    transform: translateY(-4px) scale(1.08);
+}
+
+/* =====================================================
+   BOTONES
+===================================================== */
+.btn {
+    padding: 14px 28px;
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-size: 20px;
+}
+
+.primary {
+    background: linear-gradient(45deg, #ff6b00, #ff9500);
+    color: #ffffff;
+    box-shadow: 0 6px 0 #c94f00;
+}
+
+.primary:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #c94f00;
+}
+
+.secondary {
+    background: #222;
+    color: #fff;
+    box-shadow: 0 6px 0 #111;
+}
+
+.secondary:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #111;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: clamp(40px, 5vw, 80px);
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.hero-content {
+    max-width: 550px;
+}
+
+.title-gradient,
+.section-title {
+    background: linear-gradient(45deg, #ff6b00, #ff9500);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.title-gradient {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.subtitle {
+    margin: 10px 0 20px;
+    color: #aaa;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stats {
+    display: flex;
+    gap: 40px;
+}
+
+.stats h3 {
+    color: #ff6b00;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 992px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-links a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 12px 0;
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .nav-links a:hover {
+        background: rgba(255,255,255,0.08);
+        border-radius: 8px;
+        transform: translateX(5px);
+    }
+
+    .social-container {
+        width: 100%;
+        justify-content: center;
+        margin-top: 25px;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .social-links a {
+        --size: 38px;
+    }
+}
+
+/* =====================================================
+   IMAGEN
+===================================================== */
+/* =====================================================
+   FOTO PERFIL 3D PREMIUM
+===================================================== */
+.hero-image {
+    perspective: 1000px;
+}
+
+.hero-image img {
+    width: clamp(250px, 35vw, 420px);          /* Más grande */
+    max-width: 100%;
+    height: auto;              /* Mantiene proporción */
+    border-radius: 50%;
+    border: 10px solid #00000000;
+
+    object-fit: cover;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.6),
+        0 0 40px rgba(255, 106, 0, 0.597);
+
+    transition: transform 0.5s cubic-bezier(0.22,1,0.36,1),
+                box-shadow 0.5s ease;
+}
+
+/* 🔥 Efecto 3D al pasar el mouse */
+.hero-image img:hover {
+    transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+    box-shadow:
+        0 30px 70px rgba(0,0,0,0.7),
+        0 0 60px rgb(0, 0, 0);
+}
+
+/* =====================================================
+   HAMBURGER BUTTON
+===================================================== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background: linear-gradient(45deg, #ff6b00, #ff9500);
+    border-radius: 5px;
+    transition: 0.4s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* =====================================================
+   NAV LINKS DESKTOP
+===================================================== */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+/* Enlaces normales */
+.nav-links a {
+    position: relative;
+    font-weight: 500;
+    color: #ccc;
+    padding: 6px 0;
+    transition: color 0.3s ease;
+}
+
+/* Línea animada */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(45deg, #ff6b00, #ff9500);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* =====================================================
+   SOCIAL ICONS GLOBAL (DISEÑO DIFERENTE)
+===================================================== */
+.social-container {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.social-links {
+    display: flex;
+    gap: 14px;
+    flex-wrap: nowrap; /* siempre en fila */
+}
+
+/* Tamaño ajustable */
+.social-links a {
+    --icon-size: 42px;
+
+    width: var(--icon-size);
+    height: var(--icon-size);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px);
+
+    color: #fff;
+    font-size: 18px;
+
+    transition: all 0.3s ease;
+}
+
+/* Hover diferente a enlaces */
+.social-links a:hover {
+    transform: translateY(-4px) scale(1.08);
+    background: linear-gradient(45deg, #ff6b00, #ff9500);
+}
+
+/* =====================================================
+   SERVICES
+===================================================== */
+.services {
+    padding: 100px 80px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    background: #111;
+    padding: 40px;
+    border-radius: 15px;
+    width: 300px;
+    transition: 0.4s ease;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(255,107,0,0.3);
+}
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =====================================================
+   RESPONSIVE MOBILE
+===================================================== */
+@media (max-width: 992px) {
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* MENÚ LATERAL */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: 100vh;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+
+        padding: 120px 20px 40px;
+        gap: 25px;
+
+        background: rgba(20,20,20,0.95);
+        backdrop-filter: blur(15px);
+
+        transition: right 0.4s ease;
+        overflow-y: auto;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    /* Links en móvil */
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 12px 0;
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .nav-links a:hover {
+        background: rgba(255,255,255,0.08);
+        border-radius: 8px;
+        transform: translateX(5px);
+    }
+
+    /* ICONOS EN FILA EN MÓVIL */
+    .social-container {
+        width: 100%;
+        margin-top: 30px;
+        justify-content: center;
+    }
+
+    .social-links {
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .social-links a {
+        --icon-size: 38px;
+    }
+
+    /* HERO */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 120px 20px 40px;
+    }
+
+    .hero-image img {
+        width: 280px;
+        margin-top: 30px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .services {
+        padding: 80px 20px;
+    }
+}
+
+/* ==========================================
+   ICONOS CAMBIO DE COLOR SOLO EN MENÚ MÓVIL
+========================================== */
+@media (max-width: 992px) {
+
+    /* Instagram */
+    .social-links a.instagram:hover {
+        background: #E1306C;
+        color: #fff;
+    }
+
+    /* Facebook */
+    .social-links a.facebook:hover {
+        background: #1877F2;
+        color: #fff;
+    }
+
+    /* LinkedIn */
+    .social-links a.linkedin:hover {
+        background: #0A66C2;
+        color: #fff;
+    }
+
+    /* YouTube */
+    .social-links a.youtube:hover {
+        background: #FF0000;
+        color: #fff;
+    }
+
+    /* WhatsApp */
+    .social-links a.whatsapp:hover {
+        background: #25D366;
+        color: #fff;
+    }
+
+    /* Email */
+    .social-links a.email:hover {
+        background: #EA4335;
+        color: #fff;
+    }
+
+    /* Threads */
+.social-links a.threads:hover {
+    background: #000;
+    color: #fff;
+}
+}
+
+
+
+/* =====================================================
+   SOBRE MI SECTION
+===================================================== */
+.about {
+    padding: 100px 80px;
+    background: #0f0f0f;
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* TEXTO */
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text p {
+    margin: 20px 0 30px;
+    color: #ccc;
+    line-height: 1.7;
+}
+
+.certifications h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.certifications ul {
+    list-style: none;
+    padding: 0;
+}
+
+.certifications li {
+    margin-bottom: 10px;
+    color: #aaa;
+    transition: 0.3s ease;
+}
+
+.certifications li:hover {
+    color: #ff9500;
+    transform: translateX(5px);
+}
+
+/* =====================================================
+   DIPLOMAS 3D GRID
+===================================================== */
+.diplomas {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    min-width: 300px;
+}
+
+.diploma-card {
+    background: linear-gradient(145deg, #1a1a1a, #111);
+    border-radius: 15px;
+    padding: 10px;
+    overflow: hidden;
+
+    box-shadow:
+        8px 8px 20px rgba(0,0,0,0.6),
+        -4px -4px 10px rgba(255,255,255,0.03);
+
+    transform-style: preserve-3d;
+    transition: all 0.3s ease;
+}
+
+.diploma-card img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+/* EFECTO 3D HOVER */
+.diploma-card:hover {
+    transform: translateY(-8px) rotateX(6deg);
+    box-shadow:
+        12px 18px 35px rgba(0,0,0,0.8),
+        0 0 20px rgba(255,140,0,0.3);
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 992px) {
+
+    .about {
+        padding: 80px 20px;
+    }
+
+    .about-container {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .diplomas {
+        grid-template-columns: 1fr;
+    }
+
+    .diploma-card:hover {
+        transform: translateY(-6px);
+    }
+}
+
+.diploma-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* =====================================================
+   PORTAFOLIO ESCALABLE PROFESIONAL
+===================================================== */
+
+.portfolio {
+    padding: 120px 80px;
+    text-align: center;
+}
+
+.portfolio-container {
+    margin-top: 60px;
+    display: grid;
+    gap: 30px;
+
+    /* 🔥 Sistema escalable automático */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Tarjeta */
+.project-card {
+    background: #111;
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s ease;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+/* Hover elegante */
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 60px rgba(255,107,0,0.25);
+}
+
+/* Imagen */
+.project-image {
+    aspect-ratio: 16 / 9; /* 🔥 Mantiene proporción profesional */
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.08);
+}
+
+/* Contenido */
+.project-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-content h3 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.project-content p {
+    font-size: 0.95rem;
+    color: #aaa;
+    margin-bottom: 20px;
+    flex-grow: 1; /* 🔥 Empuja botones abajo */
+}
+
+/* Tecnologías */
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.project-tech span {
+    background: rgba(255,255,255,0.07);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+}
+
+/* Botones */
+.project-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 992px) {
+
+    .portfolio {
+        padding: 90px 20px;
+    }
+
+    .project-content {
+        text-align: center;
+    }
+
+    .project-buttons {
+        justify-content: center;
+    }
+
+}
+
+
+/* =====================================================
+   CONTACTO PROFESIONAL
+===================================================== */
+
+.contact {
+    padding: 120px 80px;
+}
+
+.contact-container {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px;
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* INFORMACIÓN */
+.contact-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #111;
+    padding: 15px;
+    border-radius: 12px;
+    transition: 0.3s ease;
+}
+
+.contact-item:hover {
+    background: #1a1a1a;
+    transform: translateX(5px);
+}
+
+/* FORMULARIO */
+.contact-form {
+    background: #111;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+/* INPUTS MODERNOS */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.input-group label {
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    color: #777;
+    font-size: 0.85rem;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label,
+.input-group textarea:focus + label,
+.input-group textarea:valid + label {
+    top: -10px;
+    left: 10px;
+    background: #111;
+    padding: 0 5px;
+    font-size: 0.7rem;
+    color: #ff6b00;
+}
+
+/* BOTÓN */
+.contact-form .btn {
+    width: 100%;
+}
+
+@media (max-width: 992px) {
+
+    .contact {
+        padding: 90px 20px;
+        text-align: center;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        flex-direction: column;
+    }
+
+}
+/* =====================================================
+   FOOTER PROFESIONAL
+===================================================== */
+
+.footer {
+    margin-top: 100px;
+    padding: 40px 80px;
+    background: #0d0d0d4f;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-container {
+    max-width: 1100px;   /* 🔥 Controla el ancho aquí */
+    margin: 0 auto;      /* 🔥 Centra el footer */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-left h3 {
+    color: #ff6b00;
+    margin-bottom: 5px;
+}
+
+.footer-left p {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.footer-right p {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer {
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+}
+
+/* ==========================================
+   BOTÓN SCROLL TO TOP
+========================================== */
+#scrollTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: linear-gradient(45deg, #ff6b00, #ff9500);
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+
+    transition: all 0.3s ease;
+    z-index: 9999;
+}
+
+#scrollTopBtn:hover {
+    transform: translateY(0) scale(1.1);
+    box-shadow: 0 15px 35px rgba(255,107,0,0.4);
+}
+
+/* Visible cuando se activa */
+#scrollTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* ==========================================
+   BOTÓN SCROLL TO TOP PROFESIONAL
+========================================== */
+#scrollTopBtn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+
+    width: 50px;
+    height: 50px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: linear-gradient(45deg, #ff6b00, #ff9500);
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+    cursor: pointer;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.9);
+
+    transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+
+    z-index: 9999;
+}
+
+/* Hover PC */
+#scrollTopBtn:hover {
+    transform: translateY(0) scale(1.1);
+    box-shadow: 0 15px 40px rgba(255,107,0,0.5);
+}
+
+/* Visible */
+#scrollTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* ===============================
+   RESPONSIVE MÓVIL
+================================= */
+@media (max-width: 768px) {
+
+    #scrollTopBtn {
+        bottom: 20px;
+        right: 20px;
+
+        width: 42px;
+        height: 42px;
+
+        font-size: 16px;
+    }
+}
+
