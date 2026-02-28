@@ -138,3 +138,29 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+
+
+function animateCircularSkills() {
+    const circles = document.querySelectorAll(".circle");
+
+    circles.forEach(circle => {
+        const percent = circle.getAttribute("data-percent");
+        const progress = circle.querySelector(".progress");
+
+        const radius = 45;
+        const circumference = 2 * Math.PI * radius;
+
+        progress.style.strokeDasharray = circumference;
+
+        const offset = circumference - (percent / 100) * circumference;
+
+        const sectionTop = circle.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (sectionTop < windowHeight - 50) {
+            progress.style.strokeDashoffset = offset;
+        }
+    });
+}
+
+window.addEventListener("scroll", animateCircularSkills);
