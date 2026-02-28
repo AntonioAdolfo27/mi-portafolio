@@ -105,21 +105,32 @@ form.addEventListener("submit", function(e) {
 
     const tuCorreo = "antonioadolfo0827@gmail.com"; // 🔥 PON TU GMAIL REAL
 
-    const subject = `Nueva solicitud de servicio - ${asunto}`;
+    const subject = `📩 Nueva Solicitud desde tu Portafolio | ${asunto}`;
 
-    const body =
-`NUEVA SOLICITUD DE SERVICIO
-━━━━━━━━━━━━━━━━━━
+const body =
+`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        NUEVA SOLICITUD DE SERVICIO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Datos del Cliente
+👤 INFORMACIÓN DEL CLIENTE
+──────────────────────────
 Nombre: ${nombre}
-Correo: ${correo}
-Asunto: ${asunto}
+Correo Electrónico: ${correo}
 
-Detalle del Proyecto:
+📝 ASUNTO
+──────────────────────────
+${asunto}
+
+📌 DETALLE DEL PROYECTO
+──────────────────────────
 ${mensaje}
 
-Enviado desde tu Portafolio Web`;
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Mensaje enviado automáticamente 
+desde tu Portafolio Profesional.
+
+© Antonio Adolfo | Ingeniero en Sistemas
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`;
 
     const url = `https://mail.google.com/mail/?view=cm&to=${tuCorreo}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
@@ -138,7 +149,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
-
 
 function animateCircularSkills() {
     const circles = document.querySelectorAll(".circle");
